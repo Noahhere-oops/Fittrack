@@ -1,0 +1,289 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #2f855a;
+  --primary-dark: #276749;
+  --danger: #c53030;
+  --danger-dark: #9b2c2c;
+  --background: #f4f7f5;
+  --surface: #ffffff;
+  --text: #1a202c;
+  --muted: #4a5568;
+  --border: #d7ded9;
+  --shadow: 0 8px 24px rgba(26, 32, 44, 0.08);
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+.primary-button,
+.secondary-button {
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  min-height: 44px;
+}
+
+.app-header {
+  background: var(--primary);
+  color: white;
+  min-height: 72px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.app-header h1 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.app-header button,
+.secondary-button {
+  background: white;
+  color: var(--primary);
+  padding: 0.7rem 1rem;
+}
+
+.landing-page {
+  overflow-x: hidden;
+}
+
+.landing {
+  flex: 1;
+  width: min(720px, 100%);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.landing h2 {
+  color: var(--primary);
+  font-size: clamp(3rem, 12vw, 5rem);
+}
+
+.landing h2::before {
+  content: "💪 ";
+}
+
+.landing p {
+  color: var(--muted);
+  font-size: 1.25rem;
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: white;
+  padding: 0.9rem 2.5rem;
+  margin-top: 1rem;
+}
+
+.primary-button:hover,
+.filter-section button:hover,
+#saveBtn:hover {
+  background: var(--primary-dark);
+}
+
+.container {
+  width: min(960px, 100%);
+  margin: 0 auto;
+  padding: 1.25rem;
+  flex: 1;
+}
+
+.form-section,
+.overview-section {
+  background: var(--surface);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-section h2,
+.overview-section h2 {
+  margin-bottom: 1rem;
+}
+
+form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+label {
+  font-weight: 700;
+}
+
+input,
+select {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.85rem;
+  background: white;
+  color: var(--text);
+}
+
+input:focus,
+select:focus,
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid rgba(47, 133, 90, 0.35);
+  outline-offset: 2px;
+}
+
+.amount-unit-row {
+  display: grid;
+  grid-template-columns: 1fr 110px;
+  gap: 0.75rem;
+}
+
+#saveBtn {
+  background: var(--primary);
+  color: white;
+  padding: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.filter-section {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  overflow-x: auto;
+}
+
+.filter-section button {
+  background: var(--primary);
+  color: white;
+  padding: 0.8rem 1rem;
+  min-width: 90px;
+}
+
+.filter-section button.active {
+  background: var(--primary-dark);
+  box-shadow: inset 0 0 0 2px white;
+}
+
+#entriesContainer {
+  display: grid;
+  gap: 1rem;
+}
+
+.entry-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem;
+  background: #fbfdfc;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.entry-card h3 {
+  color: var(--primary-dark);
+}
+
+.entry-card p {
+  color: var(--muted);
+}
+
+.entry-value {
+  color: var(--text) !important;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.editBtn,
+.deleteBtn {
+  color: white;
+  padding: 0.7rem 1rem;
+}
+
+.editBtn {
+  background: var(--primary);
+}
+
+.deleteBtn {
+  background: var(--danger);
+}
+
+.editBtn:hover {
+  background: var(--primary-dark);
+}
+
+.deleteBtn:hover {
+  background: var(--danger-dark);
+}
+
+.empty-message {
+  color: var(--muted);
+  padding: 0.5rem 0;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 1rem;
+}
+
+@media (min-width: 720px) {
+  form {
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+  }
+
+  label {
+    align-self: end;
+  }
+
+  #saveBtn {
+    grid-column: 1 / -1;
+  }
+
+  #entriesContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

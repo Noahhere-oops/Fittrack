@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2f855a">
+  <title>FitTrack - Dashboard</title>
+
+  <link rel="manifest" href="../manifest.json">
+  <link rel="stylesheet" href="../public/styles/style.css">
+  <script src="../public/js/app.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <a id="backBtn" class="secondary-button" href="../index.html">Terug</a>
+    <h1 id="appTitle">FitTrack</h1>
+    <button id="languageBtn" type="button">EN</button>
+  </header>
+
+  <main class="container">
+    <section class="form-section">
+      <h2 id="formTitle">Nieuwe invoer</h2>
+
+      <form id="healthForm">
+        <input type="hidden" id="editId" value="">
+
+        <label id="dateLabel" for="date">Datum</label>
+        <input type="date" id="date" required>
+
+        <label id="categoryLabel" for="category">Categorie</label>
+        <select id="category" required>
+          <option value="Water">Water</option>
+          <option value="Slaap">Slaap</option>
+          <option value="Workout">Workout</option>
+          <option value="Gewicht">Gewicht</option>
+        </select>
+
+        <label id="descriptionLabel" for="description">Omschrijving</label>
+        <input type="text" id="description" required>
+
+        <label id="valueLabel" for="value">Hoeveelheid</label>
+        <div class="amount-unit-row">
+          <input type="number" id="value" min="0" step="0.1" required>
+          <select id="unit" aria-label="Eenheid" required>
+            <option value="L">L</option>
+            <option value="uur">uur</option>
+            <option value="min">min</option>
+            <option value="kg">kg</option>
+          </select>
+        </div>
+
+        <button type="submit" id="saveBtn">Opslaan</button>
+      </form>
+    </section>
+
+    <section class="filter-section" aria-label="Filters">
+      <button type="button" data-filter="all" id="allBtn" class="active">Alles</button>
+      <button type="button" data-filter="day" id="dayBtn">Dag</button>
+      <button type="button" data-filter="week" id="weekBtn">Week</button>
+    </section>
+
+    <section class="overview-section">
+      <h2 id="overviewTitle">Overzicht</h2>
+      <div id="entriesContainer"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>FitTrack PWA</p>
+  </footer>
+</body>
+</html>
